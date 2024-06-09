@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/09 21:09:23 by bthomas          ###   ########.fr       */
+/*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
+/*   Updated: 2024/06/09 21:06:10 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	invalid_input(int ac, char **av)
 {
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av))
-		write(1, "Wrong!\n", 7);
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (av[i][j] < '0' || av[i][j] > '9')
+				return (1);
+			j++;
+		}
+		i++;
+	}
 	return (0);
 }

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/09 21:09:23 by bthomas          ###   ########.fr       */
+/*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
+/*   Updated: 2024/06/09 21:08:31 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int ac, char **av)
-{
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av))
-		write(1, "Wrong!\n", 7);
-	return (0);
-}
+# include <stdlib.h>
+# include <unistd.h>
+
+int	invalid_input(int ac, char **av);
+
+#endif
