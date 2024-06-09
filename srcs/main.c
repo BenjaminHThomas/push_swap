@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/09 21:09:23 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/09 22:20:32 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	if (invalid_input(ac, av))
-		write(1, "Wrong!\n", 7);
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	return (0);
 }
