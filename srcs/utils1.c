@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 15:28:34 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:51:28 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,34 @@ void	free_mem(t_ps_data *data)
 	lst_clear(&data->b);
 }
 
-void	print_list(t_list *list)
+void	print_lists(t_ps_data *data)
 {
-	if (!list)
-		return ;
-	while (list)
+	t_list	*a;
+	t_list	*b;
+
+	printf("\n%10c %10c\n\n", 'A', 'B');
+	a = data->a;
+	b = data->b;
+	while (a || b)
 	{
-		printf("%d\n", list->num);
-		list = list->next;
+		if (a && b)
+			printf("%10d %10d\n", a->num, b->num);
+		else if (a && !b)
+			printf("%10d %10c\n", a->num, ' ');
+		else if (!a && b)
+			printf("%10c %10d\n", ' ', b->num);
+		if (a)
+			a = a->next;
+		if (b)
+			b = b->next;
 	}
+	printf("\n");
 }
 
 int	stack_maxnum(t_list *list)
 {
 	int		max;
-	t_list	plist;
+	t_list	*plist;
 
 	if (!list)
 		return (-1);

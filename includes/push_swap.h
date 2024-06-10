@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 15:29:17 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:47:46 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		invalid_input(int ac, char **av);
 int		ft_atoi(const char *s);
 int		init(int ac, char **av, t_ps_data *data);
 void	free_mem(t_ps_data *data);
-void	print_list(t_list *list);
+void	print_lists(t_ps_data *data);
 int		stack_maxnum(t_list *list);
 
 /* list functions */
