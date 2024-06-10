@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 10:17:40 by bthomas          ###   ########.fr       */
+/*   Created: 2024/03/26 13:55:00 by bthomas           #+#    #+#             */
+/*   Updated: 2024/06/10 09:04:48 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+int	ft_atoi(const char *s)
 {
-	t_ps_data data;
+	int			i;
+	int			sign;
+	long int	res;
 
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
+	i = 0;
+	res = 0;
+	sign = 1;
+	while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
+		i++;
+	if (s[i] == '-')
 	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
+		sign = -1;
+		i++;
 	}
-	free_mem(&data);
-	return (0);
+	else if (s[i] == '+')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		res *= 10;
+		res += s[i] - '0';
+		i++;
+	}
+	return (res * sign);
 }

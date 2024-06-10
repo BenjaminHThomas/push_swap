@@ -6,7 +6,7 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/09 22:07:43 by bthomas          ###   ########.fr        #
+#    Updated: 2024/06/10 10:09:33 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME	= push_swap
 
 SRCDIR	= srcs
 CFILES	= main.c \
-			utils1.c
+		  utils1.c \
+		  ft_atoi.c \
+		  lst_funcs.c
 
 SRCS	= $(addprefix $(SRCDIR)/,$(CFILES:.c=.o))
 
