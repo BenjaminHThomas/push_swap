@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:50 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 12:12:36 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:12:36 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pb(t_ps_data *data)
 /* (rotate a) first element moves to last */
 void	ra(t_ps_data *data)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (ft_lstsize(data->a) <= 1)
 		return ;
@@ -40,7 +40,7 @@ void	ra(t_ps_data *data)
 /* (rotate b) first element moves to last */
 void	rb(t_ps_data *data)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (ft_lstsize(data->b) <= 1)
 		return ;

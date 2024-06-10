@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 15:10:02 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:12:47 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	test_ops(t_ps_data *data)
 
 int	main(int ac, char **av)
 {
-	t_ps_data data;
+	t_ps_data	data;
 
 	if (ac < 2)
 		return (1);
@@ -49,7 +49,6 @@ int	main(int ac, char **av)
 		free_mem(&data);
 		return (1);
 	}
-	/*test_ops(&data);*/
 	free_mem(&data);
 	return (0);
 }
