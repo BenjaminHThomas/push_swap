@@ -6,18 +6,12 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 10:52:29 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:02:49 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* Swap the first 2 elements at the top of stack a. */
-/*
-void	sa(t_ps_data *data)
-{
-	
-}*/
+#include <stdio.h>
 
 int	invalid_input(int ac, char **av)
 {
@@ -48,7 +42,7 @@ int	init(int ac, char **av, t_ps_data *data)
 	if (!data->a)
 		return (1);
 	i = 2;
-	while (i < (ac -1))
+	while (i < ac)
 	{
 		temp = ft_lstnew(ft_atoi(av[i]));
 		if (!temp)
@@ -65,4 +59,15 @@ void	free_mem(t_ps_data *data)
 {
 	lst_clear(&data->a);
 	lst_clear(&data->b);
+}
+
+void	print_list(t_list *list)
+{
+	if (!list)
+		return ;
+	while (list)
+	{
+		printf("%d\n", list->num);
+		list = list->next;
+	}
 }

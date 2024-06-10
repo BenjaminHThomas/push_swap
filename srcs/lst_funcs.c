@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 09:44:09 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 10:54:52 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 12:00:53 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst == NULL)
+	if (*lst == NULL)
+	{
+		new->next = NULL;
+		*lst = new;
 		return ;
+	}
 	new->next = *lst;
 	*lst = new;
 }
