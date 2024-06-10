@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 15:12:47 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:22:39 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	main(int ac, char **av)
 		free_mem(&data);
 		return (1);
 	}
+	sort(&data);
 	free_mem(&data);
 	return (0);
 }

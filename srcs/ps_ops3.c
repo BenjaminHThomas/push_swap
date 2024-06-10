@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:13:10 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 14:58:17 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:19:00 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	rrb(t_ps_data *data)
 	ft_lstadd_front(&data->b, p_next);
 }
 
+/* reverse rotate both a & b */
 void	rrr(t_ps_data *data)
 {
 	rra(data);

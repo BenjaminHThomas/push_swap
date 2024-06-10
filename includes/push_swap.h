@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 14:59:03 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:29:17 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# define MININT -2147483648
 
 typedef struct s_list
 {
@@ -35,6 +36,7 @@ int		ft_atoi(const char *s);
 int		init(int ac, char **av, t_ps_data *data);
 void	free_mem(t_ps_data *data);
 void	print_list(t_list *list);
+int		stack_maxnum(t_list *list);
 
 /* list functions */
 t_list	*ft_lstnew(int n);
@@ -56,5 +58,8 @@ void	rr(t_ps_data *data);
 void	rra(t_ps_data *data);
 void	rrb(t_ps_data *data);
 void	rrr(t_ps_data *data);
+
+/* Sorting algo */
+void	sort(t_ps_data *data);
 
 #endif

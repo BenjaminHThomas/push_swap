@@ -6,7 +6,7 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/10 12:14:12 by bthomas          ###   ########.fr        #
+#    Updated: 2024/06/10 15:34:59 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFILES	= main.c \
 		  lst_funcs.c \
 		  ps_ops1.c \
 		  ps_ops2.c \
-		  ps_ops3.c
+		  ps_ops3.c \
+		  sort1.c
 
 SRCS	= $(addprefix $(SRCDIR)/,$(CFILES:.c=.o))
 

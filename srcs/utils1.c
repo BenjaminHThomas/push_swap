@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 15:02:49 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/10 15:28:34 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,22 @@ void	print_list(t_list *list)
 		printf("%d\n", list->num);
 		list = list->next;
 	}
+}
+
+int	stack_maxnum(t_list *list)
+{
+	int		max;
+	t_list	plist;
+
+	if (!list)
+		return (-1);
+	max = MININT;
+	plist = list;
+	while (plist)
+	{
+		if (plist->num > max)
+			max = plist->num;
+		plist = plist->next;
+	}
+	return (max);
 }
