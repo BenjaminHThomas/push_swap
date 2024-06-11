@@ -20,12 +20,18 @@ int	cost(t_ps_data *data, int n)
 	int	min_cost;
 	int	size_a;
 	int	size_b;
+	int	pos;
 
-	min_cost = 0;
 	size_a = ft_lstsize(data->a);
 	size_b = ft_lstsize(data->a);
+	pos = get_pos(data->a, n);
 	// calc steps to rotate a so n is at the top
+	if (pos <= size_a / 2)
+		min_cost = pos;
+	else
+		min_cost = size_a - pos;
 	// determine optimal position in b for n
+
 	// calc steps to rotate b to that pos
 }
 

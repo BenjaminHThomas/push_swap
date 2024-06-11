@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # define MININT -2147483648
+# define MAXINT 2147483647
 
 typedef struct s_list
 {
@@ -37,6 +38,7 @@ int		init(int ac, char **av, t_ps_data *data);
 void	free_mem(t_ps_data *data);
 void	print_lists(t_ps_data *data);
 int		stack_maxnum(t_list *list);
+int		stack_minnum(t_list *list);
 
 /* list functions */
 t_list	*ft_lstnew(int n);

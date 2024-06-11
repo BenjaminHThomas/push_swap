@@ -15,6 +15,7 @@ NAME	= push_swap
 SRCDIR	= srcs
 CFILES	= main.c \
 		  utils1.c \
+		  utils2.c \
 		  ft_atoi.c \
 		  lst_funcs.c \
 		  ps_ops1.c \
