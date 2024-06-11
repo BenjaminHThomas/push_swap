@@ -14,14 +14,20 @@
 
 /* n is in a, how many operations would it take to push into b in 
  * the correct order? */
-/*
+
 int	cost(t_ps_data *data, int n)
 {
 	int	min_cost;
+	int	size_a;
+	int	size_b;
 
-	
+	min_cost = 0;
+	size_a = ft_lstsize(data->a);
+	size_b = ft_lstsize(data->a);
+	// calc steps to rotate a so n is at the top
+	// determine optimal position in b for n
+	// calc steps to rotate b to that pos
 }
-*/
 
 void	sort(t_ps_data *data)
 {
