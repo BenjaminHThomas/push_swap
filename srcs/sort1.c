@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:40:51 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:47:07 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,12 @@ void	sort(t_ps_data *data)
 	pb(data);
 	ra(data);
 	rb(data);
+	pa(data);
+	pb(data);
+	pb(data);
+	pb(data);
 	print_lists(data);
 	debug_print(data);
 	/* 2. find "cheapest" number - which one costs the fewest
 	* operations to place into correct position in b */
-
 }

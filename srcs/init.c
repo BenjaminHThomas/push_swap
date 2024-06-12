@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:08:38 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:39:37 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:46:56 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	rank_list(t_ps_data *data, char **av)
 		pos = 0;
 		while (data->sorted_av[pos] != a->num)
 			pos++;
-		a->rank = pos + 1;
+		a->rank = pos;
 		a = a->next;
 	}
 	return (0);

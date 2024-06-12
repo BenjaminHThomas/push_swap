@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:37:52 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:52:30 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	invalid_input(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
+			if (j == 0 && av[i][j] == '-')
+				j++;
 			if (av[i][j] < '0' || av[i][j] > '9')
 				return (1);
 			j++;
@@ -61,6 +63,10 @@ void	debug_print(t_ps_data *data)
 {
 	printf("len a: %d\n", data->lena);
 	printf("len b: %d\n", data->lenb);
+	printf("a[0]: %d\n", data->a->num);
+	printf("a[0] rank: %d\n", data->a->rank);
+	printf("b[0]: %d\n", data->b->num);
+	printf("b[0] rank: %d\n", data->b->rank);
 }
 
 int	stack_maxnum(t_list *list)
