@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:02:32 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/11 12:02:34 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:25:56 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	get_pos(t_list *list, int n)
 	}
 	return (pos);
 }
-
+/*
 int	get_optimal_pos(t_list *list, int listsize, int n)
 {
 	t_list	*b;
@@ -80,4 +80,4 @@ int	get_optimal_pos(t_list *list, int listsize, int n)
 		b = b->next;
 		if (prev < n)
 	}
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 20:41:40 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:20:23 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /* n is in a, how many operations would it take to push into b in 
  * the correct order? */
-
+/*
 int	cost(t_ps_data *data, int n)
 {
 	int	min_cost;
@@ -34,7 +34,7 @@ int	cost(t_ps_data *data, int n)
 
 	// calc steps to rotate b to that pos
 }
-
+*/
 void	sort(t_ps_data *data)
 {
 	// 1. push first two numbers to stack b

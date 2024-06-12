@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 14:21:00 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:20:02 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	free_mem(t_ps_data *data);
 void	print_lists(t_ps_data *data);
 int		stack_maxnum(t_list *list);
 int		stack_minnum(t_list *list);
+void	quicksort(int *arr, int low, int high);
+int		get_pos(t_list *list, int n);
 
 /* list functions */
 t_list	*ft_lstnew(int n);

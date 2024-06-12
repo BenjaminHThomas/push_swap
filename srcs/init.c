@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:08:38 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 14:24:53 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:19:16 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	rank_list(t_ps_data *data, char **av)
 {
-	int	pos;
+	int		pos;
+	t_list	*a;
 
 	data->sorted_av = (int *)malloc(sizeof(int) * (data->ac - 1));
 	if (!data->sorted_av)
@@ -23,6 +24,17 @@ int	rank_list(t_ps_data *data, char **av)
 	while (++pos < data->ac)
 		data->sorted_av[pos - 1] = ft_atoi(av[pos]);
 	quicksort(data->sorted_av, 0, data->lena - 1);
+	pos = 0;
+	a = data->a;
+	while (a)
+	{
+		pos = 0;
+		while (data->sorted_av[pos] != a->num)
+			pos++;
+		a->rank = pos + 1;
+		a = a->next;
+	}
+	return (0);
 }
 
 int	init(int ac, char **av, t_ps_data *data)
@@ -45,5 +57,5 @@ int	init(int ac, char **av, t_ps_data *data)
 	data->ac = ac;
 	data->lena = ac - 1;
 	data->b = NULL;
-	return (0);
+	return (rank_list(data, av));
 }

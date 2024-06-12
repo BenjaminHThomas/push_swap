@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:34 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 14:07:38 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:20:57 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	pa(t_ps_data *data)
 	b_next = data->b->next;
 	ft_lstadd_front(&data->a, data->b);
 	data->b = b_next;
-	data->blen -= 1;
-	data->alen += 1;
+	data->lenb -= 1;
+	data->lena += 1;
 }

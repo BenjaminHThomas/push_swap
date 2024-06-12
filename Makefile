@@ -6,14 +6,15 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/12 17:51:19 by bthomas          ###   ########.fr        #
+#    Updated: 2024/06/12 18:24:30 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap
 
-SRCDIR	= srcs
-CFILES	= main.c \
+NAME    = push_swap
+
+SRCDIR  = srcs
+CFILES  = main.c \
 		  init.c \
 		  sort1.c \
 		  ps_operators/ps_ops1.c \
@@ -26,23 +27,22 @@ CFILES	= main.c \
 		  utilities/cleanup.c \
 		  utilities/quick_sort.c
 
-SRCS	= $(addprefix $(SRCDIR)/,$(CFILES:.c=.o))
-
-OBJDIR 	= objs
-OBJS	= $(patsubst $(SRCDIR)%.c, $(OBJDIR)/%.o, $(SRCS))
+SRCS	= $(addprefix $(SRCDIR)/, $(CFILES))
+OBJDIR	= objs
+OBJS	= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 
 CFLAGS	= -Wall -Werror -Wextra -g3
 CC		= cc
 
-INCS	= -I ./includes/
+INCS	= -I./includes/
 
 all: $(OBJDIR) $(NAME)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR)
+	mkdir -p $(OBJDIR)/ps_operators $(OBJDIR)/utilities
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INCS) -o $(NAME) $(OBJS)
@@ -58,3 +58,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+
