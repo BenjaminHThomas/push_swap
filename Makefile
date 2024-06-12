@@ -6,7 +6,7 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/12 18:24:30 by bthomas          ###   ########.fr        #
+#    Updated: 2024/06/12 18:42:24 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,23 +37,24 @@ CC		= cc
 INCS	= -I./includes/
 
 all: $(OBJDIR) $(NAME)
+	@echo "Making push_swap..."
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
-	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR)/ps_operators $(OBJDIR)/utilities
+	@mkdir -p $(OBJDIR)/ps_operators $(OBJDIR)/utilities
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(INCS) -o $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(INCS) -o $(NAME) $(OBJS)
 
 clean:
-	echo "Cleaning object files..."
-	rm -rf $(OBJDIR)
+	@echo "Cleaning object files..."
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	echo "Removing program..."
-	rm -f $(NAME)
+	@echo "Removing program..."
+	@rm -f $(NAME)
 
 re: fclean all
 

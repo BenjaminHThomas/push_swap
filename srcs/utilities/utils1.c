@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 14:27:28 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:37:52 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ void	print_lists(t_ps_data *data)
 			b = b->next;
 	}
 	printf("\n");
+}
+
+void	debug_print(t_ps_data *data)
+{
+	printf("len a: %d\n", data->lena);
+	printf("len b: %d\n", data->lenb);
 }
 
 int	stack_maxnum(t_list *list)

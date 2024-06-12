@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:08:38 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:19:16 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:39:37 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	init(int ac, char **av, t_ps_data *data)
 	}
 	data->ac = ac;
 	data->lena = ac - 1;
+	data->lenb = 0;
 	data->b = NULL;
 	return (rank_list(data, av));
 }

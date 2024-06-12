@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:20:23 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:40:51 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void	sort(t_ps_data *data)
 	// 1. push first two numbers to stack b
 	pb(data);
 	pb(data);
+	ra(data);
+	rb(data);
 	print_lists(data);
+	debug_print(data);
 	/* 2. find "cheapest" number - which one costs the fewest
 	* operations to place into correct position in b */
 
