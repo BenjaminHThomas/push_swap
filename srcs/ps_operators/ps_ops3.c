@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:13:10 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 15:19:00 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 13:37:17 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rra(t_ps_data *data)
 	t_list	*p_list;
 	t_list	*p_next;
 
-	if (ft_lstsize(data->a) <= 1)
+	if (data->lena <= 1)
 		return ;
 	p_list = data->a;
 	p_next = p_list->next;
@@ -37,7 +37,7 @@ void	rrb(t_ps_data *data)
 	t_list	*p_list;
 	t_list	*p_next;
 
-	if (ft_lstsize(data->b) <= 1)
+	if (data->lenb <= 1)
 		return ;
 	p_list = data->b;
 	p_next = p_list->next;

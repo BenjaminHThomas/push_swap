@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 09:44:09 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 12:00:53 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 13:24:40 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int n)
 		return (NULL);
 	newlst->num = n;
 	newlst->next = NULL;
+	newlst->prev = NULL;
 	return (newlst);
 }
 
@@ -37,6 +38,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (plst->next)
 		plst = plst->next;
 	plst->next = new;
+	new->prev = plst;
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
@@ -48,6 +50,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	}
 	new->next = *lst;
+	new->prev = NULL;
 	*lst = new;
 }
 

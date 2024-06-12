@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 20:47:46 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 14:21:00 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@
 typedef struct s_list
 {
 	int				num;
+	int				idx;
+	int				rank;
 	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
 
 typedef struct s_ps_data
@@ -29,6 +32,9 @@ typedef struct s_ps_data
 	t_list	*a;
 	t_list	*b;
 	int		ac;
+	int		lena;
+	int		lenb;
+	int		*sorted_av;
 }	t_ps_data;
 
 /* utilities */
@@ -48,7 +54,6 @@ int		ft_lstsize(t_list *lst);
 void	lst_clear(t_list **list);
 
 /* push_swap operations */
-void	swap(t_list *a, t_list *b);
 void	sa(t_ps_data *data);
 void	sb(t_ps_data *data);
 void	ss(t_ps_data *data);

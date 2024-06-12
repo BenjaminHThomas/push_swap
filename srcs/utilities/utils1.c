@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 20:51:28 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 14:27:28 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,34 +31,6 @@ int	invalid_input(int ac, char **av)
 		i++;
 	}
 	return (0);
-}
-
-int	init(int ac, char **av, t_ps_data *data)
-{
-	int		i;
-	t_list	*temp;
-
-	data->a = ft_lstnew(ft_atoi(av[1]));
-	if (!data->a)
-		return (1);
-	i = 2;
-	while (i < ac)
-	{
-		temp = ft_lstnew(ft_atoi(av[i]));
-		if (!temp)
-			return (1);
-		ft_lstadd_back(&data->a, temp);
-		i++;
-	}
-	data->ac = ac;
-	data->b = NULL;
-	return (0);
-}
-
-void	free_mem(t_ps_data *data)
-{
-	lst_clear(&data->a);
-	lst_clear(&data->b);
 }
 
 void	print_lists(t_ps_data *data)

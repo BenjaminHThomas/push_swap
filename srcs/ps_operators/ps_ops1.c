@@ -6,19 +6,23 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:34 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/10 11:52:50 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/12 14:07:38 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list *a, t_list *b)
+static void	swap(t_list *a, t_list *b)
 {
 	int	temp_n;
+	int	temp_rank;
 
 	temp_n = a->num;
+	temp_rank = a->rank;
 	a->num = b->num;
+	a->rank = b->rank;
 	b->num = temp_n;
+	b->rank = temp_rank;
 }
 
 /* Swap the first 2 elements at the top of stack a. */
@@ -52,4 +56,6 @@ void	pa(t_ps_data *data)
 	b_next = data->b->next;
 	ft_lstadd_front(&data->a, data->b);
 	data->b = b_next;
+	data->blen -= 1;
+	data->alen += 1;
 }
