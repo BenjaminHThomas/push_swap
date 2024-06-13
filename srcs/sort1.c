@@ -17,6 +17,19 @@
  *
  * if negative, rra / rrb
  * if positive, ra / rb
+ * 
+ * len = 6
+ * [0 1 4 2 3 8]
+ * 
+ * [
+ * 0
+ * 1
+ * 4
+ * 2
+ * 3
+ * 8
+ * ]
+ * 
  * */
 static int	rotations(t_list *list, int listlen, int n)
 {
