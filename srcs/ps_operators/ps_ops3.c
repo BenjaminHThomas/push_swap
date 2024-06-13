@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:13:10 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 13:37:17 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/13 12:35:38 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	rra(t_ps_data *data)
 	}
 	p_list->next = NULL;
 	ft_lstadd_front(&data->a, p_next);
+	write(1, "rra\n", 4);
 }
 
 /* reverse rotate b: last el becomes first */
@@ -48,6 +49,7 @@ void	rrb(t_ps_data *data)
 	}
 	p_list->next = NULL;
 	ft_lstadd_front(&data->b, p_next);
+	write(1, "rrb\n", 4);
 }
 
 /* reverse rotate both a & b */
@@ -55,4 +57,5 @@ void	rrr(t_ps_data *data)
 {
 	rra(data);
 	rrb(data);
+	write(1, "rrr\n", 4);
 }

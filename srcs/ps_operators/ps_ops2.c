@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:50 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 13:35:52 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/13 12:32:44 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	pb(t_ps_data *data)
 	data->a = a_next;
 	data->lena -= 1;
 	data->lenb += 1;
+	write(1, "pb\n", 3);
 }
 
 /* (rotate a) first element moves to last */
@@ -37,6 +38,7 @@ void	ra(t_ps_data *data)
 	data->a = temp->next;
 	temp->next = NULL;
 	ft_lstadd_back(&data->a, temp);
+	write(1, "ra\n", 3);
 }
 
 /* (rotate b) first element moves to last */
@@ -50,6 +52,7 @@ void	rb(t_ps_data *data)
 	data->b = temp->next;
 	temp->next = NULL;
 	ft_lstadd_back(&data->b, temp);
+	write(1, "rb\n", 3);
 }
 
 /* both ra and rb */
@@ -57,4 +60,5 @@ void	rr(t_ps_data *data)
 {
 	ra(data);
 	rb(data);
+	write(1, "rr\n", 2);
 }

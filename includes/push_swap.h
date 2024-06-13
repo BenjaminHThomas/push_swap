@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:38:36 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/13 12:15:17 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		stack_minnum(t_list *list);
 void	quicksort(int *arr, int low, int high);
 int		get_pos(t_list *list, int n);
 void	debug_print(t_ps_data *data);
+int		int_abs(int n);
 
 /* list functions */
 t_list	*ft_lstnew(int n);

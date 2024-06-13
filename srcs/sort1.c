@@ -6,35 +6,61 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:47:07 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/13 12:38:04 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* n is in a, how many operations would it take to push into b in 
- * the correct order? */
-/*
-int	cost(t_ps_data *data, int n)
+/* n is in a, how many operations would it take to get n to the top of a
+ *
+ * if negative, rra
+ * if positive, ra
+ * */
+static int	costa(t_ps_data *data, int n)
 {
-	int	min_cost;
-	int	size_a;
-	int	size_b;
+	int	costa;
 	int	pos;
 
-	size_a = ft_lstsize(data->a);
-	size_b = ft_lstsize(data->a);
+	pos = get_pos(data->a, n);
+	if (pos <= data->lena / 2);
+		costa = -pos;
+	else
+		costa = size_a - pos;
+	return (costa);
+}
+
+/* n is in a, assuming a is at the top, how many rotations of b
+ * for it to be correctly positioned in b?
+ *
+ * if negative, rrb
+ * if positive, rb
+ */
+static int	costa_b(t_ps_data *data, int n)
+{
+	int	pos;
+	int	maxb;
+	int	minb;
+	int	costb;
+
+	maxb = stack_maxnum(data->b);
+	minb = stack_minnum(data->b);
+}
+
+int	cost(t_ps_data *data, int n)
+{
+	int	a_cost;
+	int	b_cost;
+	int	pos;
+
 	pos = get_pos(data->a, n);
 	// calc steps to rotate a so n is at the top
-	if (pos <= size_a / 2)
-		min_cost = pos;
-	else
-		min_cost = size_a - pos;
+	costa = costa(data, n);
 	// determine optimal position in b for n
 
 	// calc steps to rotate b to that pos
 }
-*/
+
 void	sort(t_ps_data *data)
 {
 	// 1. push first two numbers to stack b

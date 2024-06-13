@@ -6,11 +6,24 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:02:32 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:25:56 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/13 12:15:03 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* used for positions not values, should never encounter min int */
+int	int_abs(int n)
+{
+	if (n == MININT)
+	{
+		printf("Error: Cannot return abs value of min int.\n");
+		return (0);
+	}
+	if (n < 0)
+		return (-n);
+	return (n);
+}
 
 int	stack_minnum(t_list *list)
 {
