@@ -73,7 +73,7 @@ static int	cost(t_list *list, int listlen, int n, int rank)
 		return (get_optimal_pos(list, listlen, rank));
 }
 
-t_rots	mincost(t_ps_data *data, int n, int rank)
+t_rots	get_rots(t_ps_data *data, int n, int rank)
 {
 	t_rots	rots;
 
@@ -84,8 +84,12 @@ t_rots	mincost(t_ps_data *data, int n, int rank)
 
 void	sort(t_ps_data *data)
 {
+	
+
 	pb(data);
 	pb(data);
 	print_lists(data);
 	debug_print(data);
+	printf("\n");
+	to_b(data);
 }

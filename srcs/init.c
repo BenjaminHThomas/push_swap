@@ -20,7 +20,7 @@ int	rank_list(t_ps_data *data, char **av)
 	data->sorted_av = (int *)malloc(sizeof(int) * (data->ac - 1));
 	if (!data->sorted_av)
 		return (1);
-	pos = 0;
+	pos = 0; 
 	while (++pos < data->ac)
 		data->sorted_av[pos - 1] = ft_atoi(av[pos]);
 	quicksort(data->sorted_av, 0, data->lena - 1);

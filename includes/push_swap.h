@@ -38,6 +38,7 @@ typedef struct s_ps_data
 	int		*sorted_av;
 }	t_ps_data;
 
+/* stores the rotations needed for stack A & B*/
 typedef struct s_rots
 {
 	int	cost_a;
@@ -56,6 +57,7 @@ void	quicksort(int *arr, int low, int high);
 int		get_pos(t_list *list, int n);
 void	debug_print(t_ps_data *data);
 int		int_abs(int n);
+int		ops_needed(t_rots *rots);
 
 /* list functions */
 t_list	*ft_lstnew(int n);
@@ -79,5 +81,7 @@ void	rrr(t_ps_data *data);
 
 /* Sorting algo */
 void	sort(t_ps_data *data);
+t_rots	get_rots(t_ps_data *data, int n, int rank);
+void	to_b(t_ps_data *data);
 
 #endif
