@@ -19,4 +19,3 @@ void	free_mem(t_ps_data *data)
 	if (data->sorted_av)
 		free(data->sorted_av);
 }
-

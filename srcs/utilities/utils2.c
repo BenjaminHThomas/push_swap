@@ -62,35 +62,3 @@ int	get_pos(t_list *list, int n)
 	}
 	return (pos);
 }
-/*
-int	get_optimal_pos(t_list *list, int listsize, int n)
-{
-	t_list	*b;
-	int		pos;
-	int		max;
-	int		max_pos;
-	int		prev;
-
-	// [0, 1, 5, 2, 3, 4]
-	// len = 6;
-	// max = 5;
-	// maxpos = 2;
-	// len / 2 = 3;
-	pos = 0;
-	b = list;
-	max = stack_maxnum(b);
-	max_pos = get_pos(b, max);
-	if (n >= max || n <= stack_minnum(b))
-	{
-		if (max_pos <= listsize / 2)
-			return (max_pos);
-		else
-			return (listsize - pos);
-	}
-	while (b->next)
-	{
-		prev = b->num;
-		b = b->next;
-		if (prev < n)
-	}
-}*/

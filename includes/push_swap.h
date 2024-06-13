@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 # define MININT -2147483648
 # define MAXINT 2147483647
 
@@ -36,6 +37,12 @@ typedef struct s_ps_data
 	int		lenb;
 	int		*sorted_av;
 }	t_ps_data;
+
+typedef struct s_rots
+{
+	int	cost_a;
+	int	cost_b;
+}	t_rots;
 
 /* utilities */
 int		invalid_input(int ac, char **av);
