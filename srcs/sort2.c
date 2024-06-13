@@ -39,12 +39,12 @@ void	execute_rots(t_ps_data *data, t_rots *rots)
 	while (rots->cost_b < 0)
 	{
 		rrb(data);
-		rots->cost_b++;
+		*rots->cost_b++;
 	}
 	while (rots->cost_b > 0)
 	{
 		rb(data);
-		rots->cost_b--;
+		*rots->cost_b--;
 	}
 	pb(data);
 	print_lists(data);
@@ -75,6 +75,8 @@ void	to_b(t_ps_data *data)
 			}
 			a = a->next;
 		}
+		printf("min ops: %d\n", min_ops);
+		printf("Cost A: %d Cost B: %d", rots.cost_a, rots.cost_b);
 		execute_rots(data, &rots);
 	}
 }
