@@ -48,7 +48,7 @@ void	execute_rots(t_ps_data *data, t_rots *rots)
 	}
 	pb(data);
 	print_lists(data);
-	debug_print(data);
+	//debug_print(data);
 }
 
 void	to_b(t_ps_data *data)

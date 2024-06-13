@@ -40,7 +40,7 @@ int	get_optimal_pos(t_list *list, int listlen, int rank)
 	tail = list;
 	while (tail->next)
 		tail = tail->next;
-	if (rank > head->rank || rank < tail->rank)
+	if (rank > head->rank)
 		return (0);
 	while (head && !(rank > head->rank))
 		head = head->next;
@@ -89,7 +89,7 @@ void	sort(t_ps_data *data)
 	pb(data);
 	pb(data);
 	print_lists(data);
-	debug_print(data);
+	//debug_print(data);
 	printf("\n");
 	to_b(data);
 }

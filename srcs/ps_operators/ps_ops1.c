@@ -28,16 +28,18 @@ static void	swap(t_list *a, t_list *b)
 /* Swap the first 2 elements at the top of stack a. */
 void	sa(t_ps_data *data)
 {
-	if (ft_lstsize(data->a) > 1)
-		swap(data->a, data->a->next);
+	if (data->lena <= 1)
+		return ;
+	swap(data->a, data->a->next);
 	write(1, "sa\n", 3);
 }
 
 /* Swap the first 2 elements at the top of stack b. */
 void	sb(t_ps_data *data)
 {
-	if (ft_lstsize(data->b) > 1)
-		swap(data->b, data->b->next);
+	if (data->lenb <= 1)
+		return ;
+	swap(data->b, data->b->next);
 	write(1, "sb\n", 3);
 }
 
@@ -54,7 +56,7 @@ void	pa(t_ps_data *data)
 {
 	t_list	*b_next;
 
-	if (ft_lstsize(data->b) == 0)
+	if (data->lenb == 0)
 		return ;
 	b_next = data->b->next;
 	ft_lstadd_front(&data->a, data->b);
