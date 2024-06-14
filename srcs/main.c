@@ -6,35 +6,11 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 13:23:36 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 13:24:42 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-void	test_ops(t_ps_data *data)
-{
-	printf("List a pre-test:\n");
-	print_list(data->a);
-	printf("\nCommencing test...\n");
-	printf("\nswap function:\n");
-	sa(data);
-	print_list(data->a);
-	printf("\npush function:\n");
-	pb(data);
-	printf("printing a:\n");
-	print_list(data->a);
-	printf("printing b:\n");
-	print_list(data->b);
-	printf("\nrotating a:\n");
-	ra(data);
-	print_list(data->a);
-	printf("\nreverse rotating a:\n");
-	rra(data);
-	print_list(data->a);
-}
-*/
 
 int	main(int ac, char **av)
 {
