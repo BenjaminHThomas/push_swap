@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:34 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/13 12:31:49 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 13:20:42 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	sa(t_ps_data *data)
 	if (data->lena <= 1)
 		return ;
 	swap(data->a, data->a->next);
-	write(1, "sa\n", 3);
 }
 
 /* Swap the first 2 elements at the top of stack b. */
@@ -40,7 +39,6 @@ void	sb(t_ps_data *data)
 	if (data->lenb <= 1)
 		return ;
 	swap(data->b, data->b->next);
-	write(1, "sb\n", 3);
 }
 
 /* sa and sb at the same time. */
@@ -48,7 +46,6 @@ void	ss(t_ps_data *data)
 {
 	sa(data);
 	sb(data);
-	write(1, "ss\n", 3);
 }
 
 /* (push a): Take first element of b and put it at the top of a. */
@@ -63,5 +60,5 @@ void	pa(t_ps_data *data)
 	data->b = b_next;
 	data->lenb -= 1;
 	data->lena += 1;
-	write(1, "pa\n", 3);
+	printf("pa\n");
 }

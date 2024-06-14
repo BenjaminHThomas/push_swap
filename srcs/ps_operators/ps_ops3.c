@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:13:10 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/13 12:35:38 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 11:08:37 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,32 @@
 void	rra(t_ps_data *data)
 {
 	t_list	*p_list;
-	t_list	*p_next;
+	t_list	*tail;
 
 	if (data->lena <= 1)
 		return ;
 	p_list = data->a;
-	p_next = p_list->next;
-	while (p_next->next)
-	{
-		p_list = p_next;
-		p_next = p_list->next;
-	}
+	while (p_list->next->next)
+		p_list = p_list->next;
+	tail = p_list->next;
 	p_list->next = NULL;
-	ft_lstadd_front(&data->a, p_next);
-	write(1, "rra\n", 4);
+	ft_lstadd_front(&data->a, tail);
 }
 
 /* reverse rotate b: last el becomes first */
 void	rrb(t_ps_data *data)
 {
 	t_list	*p_list;
-	t_list	*p_next;
+	t_list	*tail;
 
 	if (data->lenb <= 1)
 		return ;
 	p_list = data->b;
-	p_next = p_list->next;
-	while (p_next->next)
-	{
-		p_list = p_next;
-		p_next = p_list->next;
-	}
+	while (p_list->next->next)
+		p_list = p_list->next;
+	tail = p_list->next;
 	p_list->next = NULL;
-	ft_lstadd_front(&data->b, p_next);
-	write(1, "rrb\n", 4);
+	ft_lstadd_front(&data->b, tail);
 }
 
 /* reverse rotate both a & b */
@@ -57,5 +49,4 @@ void	rrr(t_ps_data *data)
 {
 	rra(data);
 	rrb(data);
-	write(1, "rrr\n", 4);
 }

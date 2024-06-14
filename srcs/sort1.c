@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/13 12:39:24 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 13:23:30 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,8 @@
 
 /* n is in list x, 
 	how many operations would it take to get n to the top of list x?
- *
- * if negative, rra / rrb
- * if positive, ra / rb
- * 
- * len = 6
- * [0 1 4 2 3 8]
- * 
- * [
- * 0
- * 1
- * 4
- * 2
- * 3
- * 8
- * ]
- * 
  * */
-static int	rotations(t_list *list, int listlen, int n)
+int	rotations(t_list *list, int listlen, int n)
 {
 	int	rotats;
 	int	pos;
@@ -44,33 +28,35 @@ static int	rotations(t_list *list, int listlen, int n)
 	return (rotats);
 }
 
+/* the rank isn't min or max in the list, where does it fit in? */
 int	get_optimal_pos(t_list *list, int listlen, int rank)
 {
 	t_list	*head;
-	t_list	*tail;
+	t_list	*optimal;
+	int		diff;
+	int		temp_diff;
 
 	head = list;
-	tail = list;
-	while (tail->next)
-		tail = tail->next;
-	if (rank > head->rank)
-		return (0);
-	while (head && !(rank > head->rank))
-		head = head->next;
-	if (!head)
+	optimal = NULL;
+	diff = MAXINT;
+	while (head)
 	{
-		printf("Error: can't find optimal pos\n");
-		return (0);
+		temp_diff = rank - head->rank;
+		if (temp_diff > 0 && temp_diff < diff)
+		{
+			diff = temp_diff;
+			optimal = head;
+		}
+		head = head->next;
 	}
-	return (rotations(list, listlen, head->num));
+	if (optimal)
+		return (rotations(list, listlen, optimal->num));
+	printf("Optimal not found...\n");
+	return (0);
 }
 
-/* n is in a/b, assuming n is at the top, how many rotations of a/b
- * for it to be correctly positioned in a/b?
- *
- * if negative, rrb/rra
- * if positive, rb/ra
- */
+/* n is in a, assuming n is at the top of a, how many rotations of b
+ * for it to be correctly positioned in b? */
 static int	cost(t_list *list, int listlen, int n, int rank)
 {
 	int	max;
@@ -80,7 +66,7 @@ static int	cost(t_list *list, int listlen, int n, int rank)
 	min = stack_minnum(list);
 	if (n >= max)
 		return (rotations(list, listlen, max));
-	else if (n <= min)
+	if (n <= min)
 		return (rotations(list, listlen, min));
 	else
 		return (get_optimal_pos(list, listlen, rank));
@@ -97,12 +83,8 @@ t_rots	get_rots(t_ps_data *data, int n, int rank)
 
 void	sort(t_ps_data *data)
 {
-	
-
 	pb(data);
 	pb(data);
-	print_lists(data);
-	//debug_print(data);
-	printf("\n");
 	to_b(data);
+	to_a(data);
 }

@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/13 12:15:17 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 13:14:12 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	rrr(t_ps_data *data);
 /* Sorting algo */
 void	sort(t_ps_data *data);
 t_rots	get_rots(t_ps_data *data, int n, int rank);
+int		rotations(t_list *list, int listlen, int n);
 void	to_b(t_ps_data *data);
+void	to_a(t_ps_data *data);
 
 #endif

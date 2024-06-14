@@ -6,49 +6,58 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:23:21 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/13 16:23:23 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 13:16:32 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	execute_rots(t_ps_data *data, t_rots *rots)
+void	execute_rots_2(t_ps_data *data, t_rots rots)
 {
-	while (rots->cost_a < 0 && rots->cost_b < 0)
-	{
-		rrr(data);
-		rots->cost_a++;
-		rots->cost_b++;
-	}
-	while (rots->cost_a > 0 && rots->cost_b > 0)
-	{
-		rr(data);
-		rots->cost_a--;
-		rots->cost_b--;
-	}
-	while (rots->cost_a < 0)
+	while (rots.cost_a > 0)
 	{
 		rra(data);
-		rots->cost_a++;
+		rots.cost_a--;
+		printf("rra\n");
 	}
-	while (rots->cost_a > 0)
-	{
-		ra(data);
-		rots->cost_a--;
-	}
-	while (rots->cost_b < 0)
-	{
-		rrb(data);
-		*rots->cost_b++;
-	}
-	while (rots->cost_b > 0)
+	while (rots.cost_b < 0)
 	{
 		rb(data);
-		*rots->cost_b--;
+		rots.cost_b++;
+		printf("rb\n");
+	}
+	while (rots.cost_b > 0)
+	{
+		rrb(data);
+		rots.cost_b--;
+		printf("rrb\n");
 	}
 	pb(data);
-	print_lists(data);
-	//debug_print(data);
+}
+
+void	execute_rots_1(t_ps_data *data, t_rots rots)
+{
+	while (rots.cost_a < 0 && rots.cost_b < 0)
+	{
+		rr(data);
+		rots.cost_a++;
+		rots.cost_b++;
+		printf("rrr\n");
+	}
+	while (rots.cost_a > 0 && rots.cost_b > 0)
+	{
+		rrr(data);
+		rots.cost_a--;
+		rots.cost_b--;
+		printf("rr\n");
+	}
+	while (rots.cost_a < 0)
+	{
+		ra(data);
+		rots.cost_a++;
+		printf("ra\n");
+	}
+	execute_rots_2(data, rots);
 }
 
 void	to_b(t_ps_data *data)
@@ -75,13 +84,20 @@ void	to_b(t_ps_data *data)
 			}
 			a = a->next;
 		}
-		printf("min ops: %d\n", min_ops);
-		printf("Cost A: %d Cost B: %d", rots.cost_a, rots.cost_b);
-		execute_rots(data, &rots);
+		execute_rots_1(data, rots);
 	}
 }
-/*
-	printf("A rotations needed: %d\n", rots.cost_a);
-	printf("B rotations needed: %d\n", rots.cost_b);
-	printf("Minimum ops: %d\n", min_ops);
-*/
+
+void	to_a(t_ps_data *data)
+{
+	int		max;
+	t_rots	rots;
+
+
+	max = stack_maxnum(data->b);
+	rots.cost_a = 0;
+	rots.cost_b = rotations(data->b, data->lenb, max);
+	execute_rots_1(data, rots);
+	while (data->lenb)
+		pa(data);
+}
