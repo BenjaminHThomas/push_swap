@@ -6,11 +6,32 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:08:38 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 12:58:24 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 16:18:58 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	increment_dups(t_ps_data *data)
+{
+	t_list	*a;
+	t_list	*curr;
+	int		n;
+
+	a = data->a;
+	while (a)
+	{
+		curr = a->next;
+		n = a->num;
+		while (curr)
+		{
+			if (curr->num == n)
+				curr->rank++;
+			curr = curr->next;
+		}
+		a = a->next;
+	}
+}
 
 int	rank_list(t_ps_data *data, char **av)
 {
@@ -34,6 +55,7 @@ int	rank_list(t_ps_data *data, char **av)
 		a->rank = pos;
 		a = a->next;
 	}
+	increment_dups(data);
 	return (0);
 }
 
