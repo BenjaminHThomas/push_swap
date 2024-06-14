@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 13:23:30 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 15:26:04 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ static int	cost(t_list *list, int listlen, int n, int rank)
 
 	max = stack_maxnum(list);
 	min = stack_minnum(list);
-	if (n >= max)
+	if (n >= max || n <= min)
 		return (rotations(list, listlen, max));
-	if (n <= min)
-		return (rotations(list, listlen, min));
 	else
 		return (get_optimal_pos(list, listlen, rank));
 }

@@ -6,11 +6,20 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 13:24:42 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 15:42:56 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+	* to do:
+* 	fix bug with : ./push_swap -31 -18 0 2 54 -21 -20 -31 1
+0 20 -22 9
+
+	implement: is_a_solvable();
+		which then calls the same logic as to_b.
+*/
 
 int	main(int ac, char **av)
 {
@@ -25,6 +34,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	sort(&data);
+	print_lists(&data);
 	free_mem(&data);
 	return (0);
 }

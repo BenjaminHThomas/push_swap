@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:23:21 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 13:16:32 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/14 14:57:04 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	to_b(t_ps_data *data)
 			}
 			a = a->next;
 		}
+		print_lists(data);
+		printf("Cost A: %d Cost B: %d\n", rots.cost_a, rots.cost_b);
 		execute_rots_1(data, rots);
 	}
 }
