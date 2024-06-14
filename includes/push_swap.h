@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 # define MININT -2147483648
 # define MAXINT 2147483647
 
@@ -37,6 +38,13 @@ typedef struct s_ps_data
 	int		*sorted_av;
 }	t_ps_data;
 
+/* stores the rotations needed for stack A & B*/
+typedef struct s_rots
+{
+	int	cost_a;
+	int	cost_b;
+}	t_rots;
+
 /* utilities */
 int		invalid_input(int ac, char **av);
 int		ft_atoi(const char *s);
@@ -49,6 +57,7 @@ void	quicksort(int *arr, int low, int high);
 int		get_pos(t_list *list, int n);
 void	debug_print(t_ps_data *data);
 int		int_abs(int n);
+int		ops_needed(t_rots *rots);
 
 /* list functions */
 t_list	*ft_lstnew(int n);
@@ -72,5 +81,7 @@ void	rrr(t_ps_data *data);
 
 /* Sorting algo */
 void	sort(t_ps_data *data);
+t_rots	get_rots(t_ps_data *data, int n, int rank);
+void	to_b(t_ps_data *data);
 
 #endif

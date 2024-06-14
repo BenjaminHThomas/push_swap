@@ -12,68 +12,97 @@
 
 #include "push_swap.h"
 
-/* n is in a, how many operations would it take to get n to the top of a
+/* n is in list x, 
+	how many operations would it take to get n to the top of list x?
  *
- * if negative, rra
- * if positive, ra
+ * if negative, rra / rrb
+ * if positive, ra / rb
+ * 
+ * len = 6
+ * [0 1 4 2 3 8]
+ * 
+ * [
+ * 0
+ * 1
+ * 4
+ * 2
+ * 3
+ * 8
+ * ]
+ * 
  * */
-static int	costa(t_ps_data *data, int n)
+static int	rotations(t_list *list, int listlen, int n)
 {
-	int	costa;
+	int	rotats;
 	int	pos;
 
-	pos = get_pos(data->a, n);
-	if (pos <= data->lena / 2);
-		costa = -pos;
+	pos = get_pos(list, n);
+	if (pos <= listlen / 2)
+		rotats = -pos;
 	else
-		costa = size_a - pos;
-	return (costa);
+		rotats = listlen - pos;
+	return (rotats);
 }
 
-/* n is in a, assuming a is at the top, how many rotations of b
- * for it to be correctly positioned in b?
+int	get_optimal_pos(t_list *list, int listlen, int rank)
+{
+	t_list	*head;
+	t_list	*tail;
+
+	head = list;
+	tail = list;
+	while (tail->next)
+		tail = tail->next;
+	if (rank > head->rank)
+		return (0);
+	while (head && !(rank > head->rank))
+		head = head->next;
+	if (!head)
+	{
+		printf("Error: can't find optimal pos\n");
+		return (0);
+	}
+	return (rotations(list, listlen, head->num));
+}
+
+/* n is in a/b, assuming n is at the top, how many rotations of a/b
+ * for it to be correctly positioned in a/b?
  *
- * if negative, rrb
- * if positive, rb
+ * if negative, rrb/rra
+ * if positive, rb/ra
  */
-static int	costa_b(t_ps_data *data, int n)
+static int	cost(t_list *list, int listlen, int n, int rank)
 {
-	int	pos;
-	int	maxb;
-	int	minb;
-	int	costb;
+	int	max;
+	int	min;
 
-	maxb = stack_maxnum(data->b);
-	minb = stack_minnum(data->b);
+	max = stack_maxnum(list);
+	min = stack_minnum(list);
+	if (n >= max)
+		return (rotations(list, listlen, max));
+	else if (n <= min)
+		return (rotations(list, listlen, min));
+	else
+		return (get_optimal_pos(list, listlen, rank));
 }
 
-int	cost(t_ps_data *data, int n)
+t_rots	get_rots(t_ps_data *data, int n, int rank)
 {
-	int	a_cost;
-	int	b_cost;
-	int	pos;
+	t_rots	rots;
 
-	pos = get_pos(data->a, n);
-	// calc steps to rotate a so n is at the top
-	costa = costa(data, n);
-	// determine optimal position in b for n
-
-	// calc steps to rotate b to that pos
+	rots.cost_a = rotations(data->a, data->lena, n);
+	rots.cost_b = cost(data->b, data->lenb, n, rank);
+	return (rots);
 }
 
 void	sort(t_ps_data *data)
 {
-	// 1. push first two numbers to stack b
-	pb(data);
-	pb(data);
-	ra(data);
-	rb(data);
-	pa(data);
-	pb(data);
+	
+
 	pb(data);
 	pb(data);
 	print_lists(data);
-	debug_print(data);
-	/* 2. find "cheapest" number - which one costs the fewest
-	* operations to place into correct position in b */
+	//debug_print(data);
+	printf("\n");
+	to_b(data);
 }

@@ -17,7 +17,7 @@ void	pb(t_ps_data *data)
 {
 	t_list	*a_next;
 
-	if (ft_lstsize(data->a) == 0)
+	if (data->lena == 0)
 		return ;
 	a_next = data->a->next;
 	ft_lstadd_front(&data->b, data->a);
@@ -32,7 +32,7 @@ void	ra(t_ps_data *data)
 {
 	t_list	*temp;
 
-	if (ft_lstsize(data->a) <= 1)
+	if (data->lena <= 1)
 		return ;
 	temp = data->a;
 	data->a = temp->next;
@@ -46,7 +46,7 @@ void	rb(t_ps_data *data)
 {
 	t_list	*temp;
 
-	if (ft_lstsize(data->b) <= 1)
+	if (data->lenb <= 1)
 		return ;
 	temp = data->b;
 	data->b = temp->next;

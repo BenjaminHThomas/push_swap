@@ -17,6 +17,7 @@ SRCDIR  = srcs
 CFILES  = main.c \
 		  init.c \
 		  sort1.c \
+		  sort2.c \
 		  ps_operators/ps_ops1.c \
 		  ps_operators/ps_ops2.c \
 		  ps_operators/ps_ops3.c \

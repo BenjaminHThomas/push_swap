@@ -62,35 +62,23 @@ int	get_pos(t_list *list, int n)
 	}
 	return (pos);
 }
-/*
-int	get_optimal_pos(t_list *list, int listsize, int n)
-{
-	t_list	*b;
-	int		pos;
-	int		max;
-	int		max_pos;
-	int		prev;
 
-	// [0, 1, 5, 2, 3, 4]
-	// len = 6;
-	// max = 5;
-	// maxpos = 2;
-	// len / 2 = 3;
-	pos = 0;
-	b = list;
-	max = stack_maxnum(b);
-	max_pos = get_pos(b, max);
-	if (n >= max || n <= stack_minnum(b))
+/* if both are positive, can use rr
+	if both are negative, can use rrr
+	else use ra/rb and rrb/rra seperately*/
+int	ops_needed(t_rots *rots)
+{
+	if (rots->cost_a >= 0 && rots->cost_b >= 0)
 	{
-		if (max_pos <= listsize / 2)
-			return (max_pos);
-		else
-			return (listsize - pos);
+		if (rots->cost_a > rots->cost_b)
+			return (rots->cost_a);
+		return (rots->cost_b);
 	}
-	while (b->next)
+	else if (rots->cost_a <= 0 && rots->cost_b <= 0)
 	{
-		prev = b->num;
-		b = b->next;
-		if (prev < n)
+		if (rots->cost_a < rots->cost_b)
+			return (int_abs(rots->cost_a));
+		return (int_abs(rots->cost_b));
 	}
-}*/
+	return (int_abs(rots->cost_a) + int_abs(rots->cost_b));
+}
