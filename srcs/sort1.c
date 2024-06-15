@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 19:48:31 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 20:19:02 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_rots	get_rots(t_ps_data *data, int n, int rank, int is_to_b)
 	}
 	else
 	{
-		rots.cost_a = cost(data->b, data->lenb, n, rank);
+		rots.cost_a = cost(data->a, data->lena, n, rank);
 		rots.cost_b = rotations(data->b, data->lenb, n);
 	}
 	return (rots);

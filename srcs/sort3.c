@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:38:59 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 20:03:44 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 20:22:55 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	to_a(t_ps_data *data)
 	int		curr_ops;
 	t_list	*b;
 
+	print_lists(data);
 	b = data->b;
 	while (data->lenb)
 	{
@@ -50,5 +51,6 @@ void	to_a(t_ps_data *data)
 		}
 		execute_rots_1(data, rots);
 		pa(data);
+		print_lists(data);
 	}
 }
