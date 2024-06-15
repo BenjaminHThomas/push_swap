@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 20:56:10 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 21:11:26 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,21 @@ int	get_optimal_pos(t_list *list, int listlen, int rank)
 
 /* n is in a, assuming n is at the top of a, how many rotations of b
  * for it to be correctly positioned in b? */
-static int	cost(t_list *list, int listlen, int n, int rank)
+static int	cost(t_list *list, int listlen, int n, int rank, int to_b)
 {
 	int	max;
 	int	min;
 
 	max = stack_maxnum(list);
 	min = stack_minnum(list);
-	if (n >= max || n <= min)
+	if (to_b && (n >= max || n <= min))
 		return (rotations(list, listlen, max));
-	else
+	else if (!to_b && (n >= max || n <= min))
+		return (rotations(list, listlen, min));
+	else if (to_b)
 		return (get_optimal_pos(list, listlen, rank));
+	else
+		return (get_optimal_pos_a(list, listlen, rank));
 }
 
 t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
@@ -77,11 +81,11 @@ t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
 	if (to_b)
 	{
 		rots.cost_a = rotations(data->a, data->lena, n);
-		rots.cost_b = cost(data->b, data->lenb, n, rank);
+		rots.cost_b = cost(data->b, data->lenb, n, rank, to_b);
 	}
 	else
 	{
-		rots.cost_a = cost(data->a, data->lena, n, rank);
+		rots.cost_a = cost(data->a, data->lena, n, rank, to_b);
 		rots.cost_b = rotations(data->b, data->lenb, n);
 	}
 	return (rots);

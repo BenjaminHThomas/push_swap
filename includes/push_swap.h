@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 20:04:01 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 20:59:25 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void	to_b(t_ps_data *data);
 void	to_a(t_ps_data *data);
 int		a_solvable(t_ps_data *data);
 void	clean_a(t_ps_data *data);
+int		get_optimal_pos_a(t_list *list, int listlen, int rank);
 
 #endif
