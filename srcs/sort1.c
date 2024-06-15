@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 20:19:02 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 20:56:10 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	get_optimal_pos(t_list *list, int listlen, int rank)
 	}
 	if (optimal)
 		return (rotations(list, listlen, optimal->num));
-	printf("Optimal not found...\n");
 	return (0);
 }
+
 
 /* n is in a, assuming n is at the top of a, how many rotations of b
  * for it to be correctly positioned in b? */
@@ -70,11 +70,11 @@ static int	cost(t_list *list, int listlen, int n, int rank)
 		return (get_optimal_pos(list, listlen, rank));
 }
 
-t_rots	get_rots(t_ps_data *data, int n, int rank, int is_to_b)
+t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
 {
 	t_rots	rots;
 
-	if (is_to_b)
+	if (to_b)
 	{
 		rots.cost_a = rotations(data->a, data->lena, n);
 		rots.cost_b = cost(data->b, data->lenb, n, rank);
