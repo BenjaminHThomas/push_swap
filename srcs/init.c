@@ -6,12 +6,13 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:08:38 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 16:18:58 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 18:44:53 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* When there's duplicates in the stack, ensure they've got a unique rank */
 void	increment_dups(t_ps_data *data)
 {
 	t_list	*a;

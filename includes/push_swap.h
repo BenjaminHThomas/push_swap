@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 16:03:44 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 19:35:33 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int		ops_needed(t_rots *rots);
 int		get_pos(t_list *list, int n);
 void	to_b(t_ps_data *data);
 void	to_a(t_ps_data *data);
+int		a_solvable(t_ps_data *data);
 
 #endif

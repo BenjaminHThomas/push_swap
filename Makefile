@@ -6,7 +6,7 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/12 18:42:24 by bthomas          ###   ########.fr        #
+#    Updated: 2024/06/15 19:29:54 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFILES  = main.c \
 		  init.c \
 		  sort1.c \
 		  sort2.c \
+		  a_solvable.c \
 		  ps_operators/ps_ops1.c \
 		  ps_operators/ps_ops2.c \
 		  ps_operators/ps_ops3.c \
