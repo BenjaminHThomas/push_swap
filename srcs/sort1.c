@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 15:26:04 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 19:48:31 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,20 @@ static int	cost(t_list *list, int listlen, int n, int rank)
 		return (get_optimal_pos(list, listlen, rank));
 }
 
-t_rots	get_rots(t_ps_data *data, int n, int rank)
+t_rots	get_rots(t_ps_data *data, int n, int rank, int is_to_b)
 {
 	t_rots	rots;
 
-	rots.cost_a = rotations(data->a, data->lena, n);
-	rots.cost_b = cost(data->b, data->lenb, n, rank);
+	if (is_to_b)
+	{
+		rots.cost_a = rotations(data->a, data->lena, n);
+		rots.cost_b = cost(data->b, data->lenb, n, rank);
+	}
+	else
+	{
+		rots.cost_a = cost(data->b, data->lenb, n, rank);
+		rots.cost_b = rotations(data->b, data->lenb, n);
+	}
 	return (rots);
 }
 
@@ -85,4 +93,5 @@ void	sort(t_ps_data *data)
 	pb(data);
 	to_b(data);
 	to_a(data);
+	clean_a(data);
 }

@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 18:42:40 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 19:28:30 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 19:50:37 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	desc_check(t_list *a, int min, int max)
 	while (a->next)
 	{
 		if (a->num == min && a->next->num == max)
-			return (asc_check(a->next));
+			return (asc_check(a->next, min, max));
 		if (a->num < a->next->num)
 			return (0);
 		a = a->next;
@@ -32,7 +32,7 @@ static int	asc_check(t_list *a, int min, int max)
 	while (a->next)
 	{
 		if (a->num == max && a->next->num == min)
-			return (desc_check(a->next));
+			return (desc_check(a->next, min, max));
 		if (a->num > a->next->num)
 			return (0);
 		a = a->next;
