@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/12 18:52:30 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:32:14 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,6 @@ void	print_lists(t_ps_data *data)
 	printf("\n");
 }
 
-void	debug_print(t_ps_data *data)
-{
-	printf("len a: %d\n", data->lena);
-	printf("len b: %d\n", data->lenb);
-	printf("a[0]: %d\n", data->a->num);
-	printf("a[0] rank: %d\n", data->a->rank);
-	printf("b[0]: %d\n", data->b->num);
-	printf("b[0] rank: %d\n", data->b->rank);
-}
-
 int	stack_maxnum(t_list *list)
 {
 	int		max;
@@ -84,4 +74,13 @@ int	stack_maxnum(t_list *list)
 		plist = plist->next;
 	}
 	return (max);
+}
+
+void	print_ranks(t_list *list)
+{
+	while (list)
+	{
+		printf("num %10d rank %10d\n", list->num, list->rank);
+		list = list->next;
+	}
 }

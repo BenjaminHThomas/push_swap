@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 19:35:33 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:32:28 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	quicksort(int *arr, int low, int high);
 void	debug_print(t_ps_data *data);
 int		int_abs(int n);
 void	del_element(t_ps_data *data, int pos);
+void	print_ranks(t_list *list);
 
 /* list functions */
 t_list	*ft_lstnew(int n);
@@ -80,12 +81,15 @@ void	rrr(t_ps_data *data);
 
 /* Sorting algo */
 void	sort(t_ps_data *data);
-t_rots	get_rots(t_ps_data *data, int n, int rank);
+t_rots	get_rots(t_ps_data *data, int n, int rank, int is_to_b);
 int		rotations(t_list *list, int listlen, int n);
-int		ops_needed(t_rots *rots);
+void	execute_rots_1(t_ps_data *data, t_rots rots);
+int		ops_needed(t_rots rots);
 int		get_pos(t_list *list, int n);
 void	to_b(t_ps_data *data);
 void	to_a(t_ps_data *data);
 int		a_solvable(t_ps_data *data);
+void	clean_a(t_ps_data *data);
+int		get_optimal_pos_a(t_list *list, int listlen, int rank);
 
 #endif

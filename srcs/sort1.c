@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 15:26:04 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:46:03 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	rotations(t_list *list, int listlen, int n)
 }
 
 /* the rank isn't min or max in the list, where does it fit in? */
-int	get_optimal_pos(t_list *list, int listlen, int rank)
+int	get_optimal_pos_b(t_list *list, int listlen, int rank)
 {
 	t_list	*head;
 	t_list	*optimal;
@@ -51,31 +51,23 @@ int	get_optimal_pos(t_list *list, int listlen, int rank)
 	}
 	if (optimal)
 		return (rotations(list, listlen, optimal->num));
-	printf("Optimal not found...\n");
-	return (0);
+	return (rotations(list, listlen, stack_maxnum(list)));
 }
 
-/* n is in a, assuming n is at the top of a, how many rotations of b
- * for it to be correctly positioned in b? */
-static int	cost(t_list *list, int listlen, int n, int rank)
-{
-	int	max;
-	int	min;
-
-	max = stack_maxnum(list);
-	min = stack_minnum(list);
-	if (n >= max || n <= min)
-		return (rotations(list, listlen, max));
-	else
-		return (get_optimal_pos(list, listlen, rank));
-}
-
-t_rots	get_rots(t_ps_data *data, int n, int rank)
+t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
 {
 	t_rots	rots;
 
-	rots.cost_a = rotations(data->a, data->lena, n);
-	rots.cost_b = cost(data->b, data->lenb, n, rank);
+	if (to_b)
+	{
+		rots.cost_a = rotations(data->a, data->lena, n);
+		rots.cost_b = get_optimal_pos_b(data->b, data->lenb, rank);
+	}
+	else
+	{
+		rots.cost_a = get_optimal_pos_a(data->a, data->lena, rank);
+		rots.cost_b = rotations(data->b, data->lenb, n);
+	}
 	return (rots);
 }
 
@@ -85,4 +77,5 @@ void	sort(t_ps_data *data)
 	pb(data);
 	to_b(data);
 	to_a(data);
+	clean_a(data);
 }

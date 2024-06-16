@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:02:32 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/13 12:15:03 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/15 20:03:26 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,19 @@ int	get_pos(t_list *list, int n)
 /* if both are positive, can use rr
 	if both are negative, can use rrr
 	else use ra/rb and rrb/rra seperately*/
-int	ops_needed(t_rots *rots)
+int	ops_needed(t_rots rots)
 {
-	if (rots->cost_a >= 0 && rots->cost_b >= 0)
+	if (rots.cost_a >= 0 && rots.cost_b >= 0)
 	{
-		if (rots->cost_a > rots->cost_b)
-			return (rots->cost_a);
-		return (rots->cost_b);
+		if (rots.cost_a > rots.cost_b)
+			return (rots.cost_a);
+		return (rots.cost_b);
 	}
-	else if (rots->cost_a <= 0 && rots->cost_b <= 0)
+	else if (rots.cost_a <= 0 && rots.cost_b <= 0)
 	{
-		if (rots->cost_a < rots->cost_b)
-			return (int_abs(rots->cost_a));
-		return (int_abs(rots->cost_b));
+		if (rots.cost_a < rots.cost_b)
+			return (int_abs(rots.cost_a));
+		return (int_abs(rots.cost_b));
 	}
-	return (int_abs(rots->cost_a) + int_abs(rots->cost_b));
+	return (int_abs(rots.cost_a) + int_abs(rots.cost_b));
 }
