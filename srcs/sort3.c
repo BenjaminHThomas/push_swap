@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:38:59 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 08:31:06 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:44:34 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,16 @@ int	get_optimal_pos_a(t_list *list, int listlen, int rank)
 	while (head)
 	{
 		temp_diff = rank - head->rank;
-		printf("Rank: %d, head->rank: %d diff: %d\n", rank, head->rank, temp_diff);
 		if (temp_diff < 0 && temp_diff > diff)
 		{
 			diff = temp_diff;
 			optimal = head;
-			printf("Optimal = %d rank = %d diff = %d\n", head->num, head->rank, diff);
 		}
 		head = head->next;
 	}
 	if (optimal)
 		return (rotations(list, listlen, optimal->num));
-	printf("Couldn't find optimal\n");
-	return (0);
+	return (rotations(list, listlen, stack_minnum(list)));
 }
 
 void	clean_a(t_ps_data *data)
@@ -61,12 +58,11 @@ void	to_a(t_ps_data *data)
 	int		curr_ops;
 	t_list	*b;
 
-	print_lists(data);
 	while (data->lenb)
 	{
 		b = data->b;
 		min_ops = MAXINT;
-		while (b->next)
+		while (b)
 		{
 			temp = get_rots(data, b->num, b->rank, 0);
 			curr_ops = ops_needed(temp);
@@ -77,7 +73,6 @@ void	to_a(t_ps_data *data)
 			}
 			b = b->next;
 		}
-		printf("Cost A: %d, Cost B: %d\n", rots.cost_a, rots.cost_b);
 		execute_rots_1(data, rots);
 		pa(data);
 		print_lists(data);

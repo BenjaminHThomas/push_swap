@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 20:59:25 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:32:28 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	quicksort(int *arr, int low, int high);
 void	debug_print(t_ps_data *data);
 int		int_abs(int n);
 void	del_element(t_ps_data *data, int pos);
+void	print_ranks(t_list *list);
 
 /* list functions */
 t_list	*ft_lstnew(int n);

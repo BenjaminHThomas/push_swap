@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 08:29:13 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:34:15 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	get_optimal_pos_b(t_list *list, int listlen, int rank)
 	}
 	if (optimal)
 		return (rotations(list, listlen, optimal->num));
-	return (0);
+	return (rotations(list, listlen, stack_maxnum(list)));
 }
 
 t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
@@ -73,6 +73,7 @@ t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
 
 void	sort(t_ps_data *data)
 {
+	print_lists(data);
 	pb(data);
 	pb(data);
 	to_b(data);

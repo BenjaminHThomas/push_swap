@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 21:28:37 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:33:01 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(int ac, char **av)
 	else
 		clean_a(&data);
 	print_lists(&data);
+	print_ranks(data.a);
 	free_mem(&data);
 	return (0);
 }
