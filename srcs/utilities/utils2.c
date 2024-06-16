@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:02:32 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 20:03:26 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 21:43:57 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	int_abs(int n)
 {
 	if (n == MININT)
 	{
-		printf("Error: Cannot return abs value of min int.\n");
+		ft_printf("Error: Cannot return abs value of min int.\n");
 		return (0);
 	}
 	if (n < 0)

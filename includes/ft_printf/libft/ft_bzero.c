@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:51:24 by bthomas          ###   ########.fr       */
+/*   Created: 2024/03/28 16:11:53 by bthomas           #+#    #+#             */
+/*   Updated: 2024/03/28 20:06:19 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_bzero(void *s, size_t n)
 {
-	t_ps_data	data;
-
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
-	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
-	}
-	if (!a_solvable(&data))
-		sort(&data);
-	else
-		clean_a(&data);
-	free_mem(&data);
+	ft_memset(s, 0, n);
+}
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char str[20] = "wowowwowowow";
+	ft_bzero(str + 5, 2);
+	printf("%s", str);
 	return (0);
 }
+*/

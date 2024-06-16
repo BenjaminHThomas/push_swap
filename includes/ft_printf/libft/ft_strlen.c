@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:51:24 by bthomas          ###   ########.fr       */
+/*   Created: 2024/03/27 13:50:07 by bthomas           #+#    #+#             */
+/*   Updated: 2024/06/04 10:53:47 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlen(const char *s)
 {
-	t_ps_data	data;
+	int	len;
 
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
-	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
-	}
-	if (!a_solvable(&data))
-		sort(&data);
-	else
-		clean_a(&data);
-	free_mem(&data);
-	return (0);
+	if (!s)
+		return (0);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

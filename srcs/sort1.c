@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:21:01 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 09:46:03 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 21:51:44 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,11 @@ t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
 
 void	sort(t_ps_data *data)
 {
+	print_lists(data);
 	pb(data);
 	pb(data);
 	to_b(data);
 	to_a(data);
 	clean_a(data);
+	print_lists(data);
 }

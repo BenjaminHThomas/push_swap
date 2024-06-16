@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:06:41 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 09:32:28 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 21:46:16 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "ft_printf.h"
 # define MININT -2147483648
 # define MAXINT 2147483647
 

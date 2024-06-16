@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:51:24 by bthomas          ###   ########.fr       */
+/*   Created: 2024/03/31 14:48:52 by bthomas           #+#    #+#             */
+/*   Updated: 2024/04/11 17:52:11 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strdup(const char *s)
 {
-	t_ps_data	data;
+	int		len;
+	char	*cpy;
 
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
-	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
-	}
-	if (!a_solvable(&data))
-		sort(&data);
-	else
-		clean_a(&data);
-	free_mem(&data);
+	len = ft_strlen(s);
+	cpy = malloc(len + 1 * sizeof(char));
+	if (cpy != NULL)
+		ft_strlcpy(cpy, s, len + 1);
+	return (cpy);
+}
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	str[20] = "Wowzers";
+	char	*strcpy = strdup(str);
+	printf("%s", strcpy);
 	return (0);
 }
+*/

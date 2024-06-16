@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 21:02:57 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 09:32:14 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 21:43:41 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	print_lists(t_ps_data *data)
 	while (a || b)
 	{
 		if (a && b)
-			printf("%10d %10d\n", a->num, b->num);
+			ft_printf("%10d %10d\n", a->num, b->num);
 		else if (a && !b)
-			printf("%10d %10c\n", a->num, ' ');
+			ft_printf("%10d %10c\n", a->num, ' ');
 		else if (!a && b)
-			printf("%10c %10d\n", ' ', b->num);
+			ft_printf("%10c %10d\n", ' ', b->num);
 		if (a)
 			a = a->next;
 		if (b)
@@ -80,7 +80,7 @@ void	print_ranks(t_list *list)
 {
 	while (list)
 	{
-		printf("num %10d rank %10d\n", list->num, list->rank);
+		ft_printf("num %10d rank %10d\n", list->num, list->rank);
 		list = list->next;
 	}
 }

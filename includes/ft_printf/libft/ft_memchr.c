@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:51:24 by bthomas          ###   ########.fr       */
+/*   Created: 2024/03/30 16:57:00 by bthomas           #+#    #+#             */
+/*   Updated: 2024/06/16 21:49:45 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_ps_data	data;
+	unsigned char	*ps;
+	unsigned char	c2;
 
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
+	c2 = c;
+	ps = (unsigned char *)s;
+	while (n && *ps != c2)
 	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
+		ps++;
+		n--;
 	}
-	if (!a_solvable(&data))
-		sort(&data);
-	else
-		clean_a(&data);
-	free_mem(&data);
-	return (0);
+	if (n > 0 && *ps == c2)
+		return ((void *)ps);
+	return (NULL);
 }

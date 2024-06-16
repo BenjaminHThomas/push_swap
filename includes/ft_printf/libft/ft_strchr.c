@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:51:24 by bthomas          ###   ########.fr       */
+/*   Created: 2024/03/30 15:42:29 by bthomas           #+#    #+#             */
+/*   Updated: 2024/04/10 17:31:09 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+char	*ft_strchr(const char *s, int c)
 {
-	t_ps_data	data;
+	unsigned char	c2;
 
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
-	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
-	}
-	if (!a_solvable(&data))
-		sort(&data);
-	else
-		clean_a(&data);
-	free_mem(&data);
+	c2 = (unsigned char)c;
+	while (*s != c2 && *s)
+		s++;
+	if (*s == c2)
+		return ((char *)s);
 	return (0);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char *str = "WowzeYrs  ppp";
+	str = ft_strchr(str, 'Y');
+	printf("%s", str);
+	return (0);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:34 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 13:20:42 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 21:44:10 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ void	pa(t_ps_data *data)
 	data->b = b_next;
 	data->lenb -= 1;
 	data->lena += 1;
-	printf("pa\n");
+	ft_printf("pa\n");
 }

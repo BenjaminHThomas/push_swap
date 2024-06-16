@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 11:13:50 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/14 13:20:54 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 21:44:26 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	pb(t_ps_data *data)
 	data->a = a_next;
 	data->lena -= 1;
 	data->lenb += 1;
-	printf("pb\n");
+	ft_printf("pb\n");
 }
 
 /* (rotate a) first element moves to last */

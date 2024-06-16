@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:51:24 by bthomas          ###   ########.fr       */
+/*   Created: 2024/05/28 12:12:01 by bthomas           #+#    #+#             */
+/*   Updated: 2024/05/31 11:43:41 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+static void	init_data(t_data *data, const char *format)
 {
-	t_ps_data	data;
+	data->fmt = format;
+	data->fmt_idx = 0;
+	data->len_out = 0;
+	data->varg_len = 0;
+	reset_flags(data);
+}
 
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
-	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
-	}
-	if (!a_solvable(&data))
-		sort(&data);
-	else
-		clean_a(&data);
-	free_mem(&data);
-	return (0);
+int	ft_printf(const char *format, ...)
+{
+	t_data	data;
+
+	if (BUFF_SIZE <= 0 || !format)
+		return (-1);
+	va_start(data.ap, format);
+	init_data(&data, format);
+	if (parse_fmt(&data))
+		return (-1);
+	return (data.len_out);
 }

@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:23:21 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 09:45:54 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 21:45:03 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ void	execute_rots_2(t_ps_data *data, t_rots rots)
 	{
 		rra(data);
 		rots.cost_a--;
-		printf("rra\n");
+		ft_printf("rra\n");
 	}
 	while (rots.cost_b < 0)
 	{
 		rb(data);
 		rots.cost_b++;
-		printf("rb\n");
+		ft_printf("rb\n");
 	}
 	while (rots.cost_b > 0)
 	{
 		rrb(data);
 		rots.cost_b--;
-		printf("rrb\n");
+		ft_printf("rrb\n");
 	}
 }
 
@@ -41,20 +41,20 @@ void	execute_rots_1(t_ps_data *data, t_rots rots)
 		rr(data);
 		rots.cost_a++;
 		rots.cost_b++;
-		printf("rrr\n");
+		ft_printf("rrr\n");
 	}
 	while (rots.cost_a > 0 && rots.cost_b > 0)
 	{
 		rrr(data);
 		rots.cost_a--;
 		rots.cost_b--;
-		printf("rr\n");
+		ft_printf("rr\n");
 	}
 	while (rots.cost_a < 0)
 	{
 		ra(data);
 		rots.cost_a++;
-		printf("ra\n");
+		ft_printf("ra\n");
 	}
 	execute_rots_2(data, rots);
 }

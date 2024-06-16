@@ -6,7 +6,7 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/15 19:48:45 by bthomas          ###   ########.fr        #
+#    Updated: 2024/06/16 21:42:10 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,16 @@ OBJS	= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 CFLAGS	= -Wall -Werror -Wextra -g3
 CC		= cc
 
-INCS	= -I./includes/
+PRINTF_LIB	= libftprintf.a
+PRINTF_DIR	= ./includes/ft_printf
+PRINTF		= $(PRINTF_DIR)$(PRINTF_LIB)
 
-all: $(OBJDIR) $(NAME)
+LINK		= -L $(PRINTF_DIR) -lftprintf
+
+INCS	= -I./includes/ \
+		  -I $(PRINTF_DIR)
+
+all: $(OBJDIR) $(PRINTF) $(NAME)
 	@echo "Making push_swap..."
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
@@ -48,16 +55,22 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)/ps_operators $(OBJDIR)/utilities
 
+$(PRINTF):
+	@echo "Making printf..."
+	@$(MAKE) -sC $(PRINTF_DIR)
+
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(INCS) -o $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(INCS) -o $(NAME) $(OBJS) $(LINK)
 
 clean:
 	@echo "Cleaning object files..."
 	@rm -rf $(OBJDIR)
+	@$(MAKE) clean -sC $(PRINTF_DIR)
 
 fclean: clean
 	@echo "Removing program..."
 	@rm -f $(NAME)
+	@$(MAKE) fclean -sC $(PRINTF_DIR)
 
 re: fclean all
 

@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 21:01:20 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:51:24 by bthomas          ###   ########.fr       */
+/*   Created: 2024/04/08 08:38:05 by bthomas           #+#    #+#             */
+/*   Updated: 2024/04/12 12:24:33 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_ps_data	data;
+	int	i;
 
-	if (ac < 2)
-		return (1);
-	if (invalid_input(ac, av) || init(ac, av, &data))
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		write(2, "Error\n", 6);
-		free_mem(&data);
-		return (1);
+		f(i, s + i);
+		i++;
 	}
-	if (!a_solvable(&data))
-		sort(&data);
-	else
-		clean_a(&data);
-	free_mem(&data);
+}
+/*
+#include <stdio.h>
+void	example(unsigned int i, char *x)
+{
+	x[i] = i + '0';
+}
+
+int	main(void)
+{
+	char	str[] = "abcde12345";
+	ft_striteri(str, example);
+	printf("\n%s\n", str);
 	return (0);
 }
+*/
