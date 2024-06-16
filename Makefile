@@ -6,7 +6,7 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/16 21:42:10 by bthomas          ###   ########.fr        #
+#    Updated: 2024/06/16 21:58:02 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ CFILES  = main.c \
 		  ps_operators/ps_ops3.c \
 		  utilities/utils1.c \
 		  utilities/utils2.c \
-		  utilities/ft_atoi.c \
 		  utilities/lst_funcs.c \
 		  utilities/cleanup.c \
 		  utilities/quick_sort.c
