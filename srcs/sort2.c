@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:23:21 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 09:34:53 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 09:45:54 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,5 @@ void	to_b(t_ps_data *data)
 		}
 		execute_rots_1(data, rots);
 		pb(data);
-		print_lists(data);
 	}
 }
