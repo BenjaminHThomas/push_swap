@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:23:21 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 21:56:06 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 08:30:56 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	to_b(t_ps_data *data)
 	while (data->lena && !a_solvable(data))
 	{
 		a = data->a;
-		min_ops = ops_needed(get_rots(data, a->num, a->rank, 1));
+		min_ops = MAXINT;
 		while (a->next)
 		{
 			temp = get_rots(data, a->num, a->rank, 1);

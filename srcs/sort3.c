@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:38:59 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/15 22:05:43 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/16 08:31:06 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	to_a(t_ps_data *data)
 	while (data->lenb)
 	{
 		b = data->b;
-		min_ops = ops_needed(get_rots(data, b->num, b->rank, 0));
+		min_ops = MAXINT;
 		while (b->next)
 		{
 			temp = get_rots(data, b->num, b->rank, 0);
@@ -77,6 +77,7 @@ void	to_a(t_ps_data *data)
 			}
 			b = b->next;
 		}
+		printf("Cost A: %d, Cost B: %d\n", rots.cost_a, rots.cost_b);
 		execute_rots_1(data, rots);
 		pa(data);
 		print_lists(data);
