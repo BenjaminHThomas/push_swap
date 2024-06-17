@@ -70,3 +70,13 @@ void	lst_clear(t_list **list)
 	}
 	*list = NULL;
 }
+
+t_list	*lst_last(t_list *list)
+{
+	t_list	*tail;
+
+	tail = list;
+	while (tail->next)
+		tail = tail->next;
+	return (tail);
+}

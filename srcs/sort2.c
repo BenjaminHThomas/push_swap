@@ -41,14 +41,14 @@ void	execute_rots_1(t_ps_data *data, t_rots rots)
 		rr(data);
 		rots.cost_a++;
 		rots.cost_b++;
-		ft_printf("rrr\n");
+		ft_printf("rr\n");
 	}
 	while (rots.cost_a > 0 && rots.cost_b > 0)
 	{
 		rrr(data);
 		rots.cost_a--;
 		rots.cost_b--;
-		ft_printf("rr\n");
+		ft_printf("rrr\n");
 	}
 	while (rots.cost_a < 0)
 	{

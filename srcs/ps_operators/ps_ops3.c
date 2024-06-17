@@ -12,35 +12,43 @@
 
 #include "push_swap.h"
 
+static t_list	*lst_pretail(t_list *list)
+{
+	t_list	*tail;
+
+	tail = list;
+	while (tail->next->next)
+		tail = tail->next;
+	return (tail);
+}
+
 /* reverse rotate a: last el becomes first */
 void	rra(t_ps_data *data)
 {
-	t_list	*p_list;
 	t_list	*tail;
+	t_list	*pre_tail;
 
 	if (data->lena <= 1)
 		return ;
-	p_list = data->a;
-	while (p_list->next->next)
-		p_list = p_list->next;
-	tail = p_list->next;
-	p_list->next = NULL;
+	tail = lst_last(data->a);
+	pre_tail = lst_pretail(data->a);
+	pre_tail->next = NULL;
+	tail->prev = NULL;
 	ft_lstadd_front(&data->a, tail);
 }
 
 /* reverse rotate b: last el becomes first */
 void	rrb(t_ps_data *data)
 {
-	t_list	*p_list;
 	t_list	*tail;
+	t_list	*pre_tail;
 
 	if (data->lenb <= 1)
 		return ;
-	p_list = data->b;
-	while (p_list->next->next)
-		p_list = p_list->next;
-	tail = p_list->next;
-	p_list->next = NULL;
+	tail = lst_last(data->b);
+	pre_tail = lst_pretail(data->b);
+	pre_tail->next = NULL;
+	tail->prev = NULL;
 	ft_lstadd_front(&data->b, tail);
 }
 

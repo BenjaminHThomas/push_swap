@@ -12,26 +12,24 @@
 
 #include "push_swap.h"
 
-/* When there's duplicates in the stack, ensure they've got a unique rank */
-void	increment_dups(t_ps_data *data)
+static int	duplicates(t_ps_data *data)
 {
-	t_list	*a;
-	t_list	*curr;
-	int		n;
+	int	i;
+	int	j;
 
-	a = data->a;
-	while (a)
+	i = 0;
+	while (data->sorted_av[i + 1])
 	{
-		curr = a->next;
-		n = a->num;
-		while (curr)
+		j = i + 1;
+		while (data->sorted_av[j])
 		{
-			if (curr->num == n)
-				curr->rank++;
-			curr = curr->next;
+			if (data->sorted_av[i] == data->sorted_av[j])
+				return (1);
+			j++;
 		}
-		a = a->next;
+		i++;
 	}
+	return (0);
 }
 
 int	rank_list(t_ps_data *data, char **av)
@@ -46,6 +44,8 @@ int	rank_list(t_ps_data *data, char **av)
 	while (++pos < data->ac)
 		data->sorted_av[pos - 1] = ft_atoi(av[pos]);
 	quicksort(data->sorted_av, 0, data->lena - 1);
+	if (duplicates(data))
+		return (1);
 	pos = 0;
 	a = data->a;
 	while (a)
@@ -56,7 +56,6 @@ int	rank_list(t_ps_data *data, char **av)
 		a->rank = pos;
 		a = a->next;
 	}
-	increment_dups(data);
 	return (0);
 }
 

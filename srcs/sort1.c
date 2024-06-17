@@ -73,11 +73,9 @@ t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
 
 void	sort(t_ps_data *data)
 {
-	print_lists(data);
 	pb(data);
 	pb(data);
 	to_b(data);
 	to_a(data);
 	clean_a(data);
-	print_lists(data);
 }
