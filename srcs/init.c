@@ -59,28 +59,27 @@ int	rank_list(t_ps_data *data, char **av)
 	return (0);
 }
 
-int	init(int ac, char **av, t_ps_data *data)
+int	init(t_ps_data *data)
 {
 	int		i;
 	t_list	*temp;
 
 	data->a = NULL;
 	data->b = NULL;
-	data->a = ft_lstnew(ft_atoi(av[1]));
+	data->a = ft_lstnew(ft_atoi(data->av[1]));
 	if (!data->a)
 		return (1);
 	i = 2;
-	while (i < ac)
+	while (i < data->ac)
 	{
-		temp = ft_lstnew(ft_atoi(av[i]));
+		temp = ft_lstnew(ft_atoi(data->av[i]));
 		if (!temp)
 			return (1);
 		ft_lstadd_back(&data->a, temp);
 		i++;
 	}
-	data->ac = ac;
-	data->lena = ac - 1;
+	data->lena = data->ac - 1;
 	data->lenb = 0;
 	data->b = NULL;
-	return (rank_list(data, av));
+	return (rank_list(data, data->av));
 }

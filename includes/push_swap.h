@@ -34,6 +34,8 @@ typedef struct s_ps_data
 	t_list	*a;
 	t_list	*b;
 	int		ac;
+	char	**av;
+	int		split_av;
 	int		lena;
 	int		lenb;
 	int		*sorted_av;
@@ -47,9 +49,9 @@ typedef struct s_rots
 }	t_rots;
 
 /* utilities */
-int		invalid_input(int ac, char **av);
+int		invalid_input(int ac, char **av, t_ps_data *data);
 int		ft_atoi(const char *s);
-int		init(int ac, char **av, t_ps_data *data);
+int		init(t_ps_data *data);
 void	free_mem(t_ps_data *data);
 void	print_lists(t_ps_data *data);
 int		stack_maxnum(t_list *list);
@@ -59,6 +61,8 @@ void	debug_print(t_ps_data *data);
 int		int_abs(int n);
 void	del_element(t_ps_data *data, int pos);
 void	print_ranks(t_list *list);
+int		replace_av(char **av, t_ps_data *data);
+int		contains_space(char *s);
 
 /* list functions */
 t_list	*ft_lstnew(int n);

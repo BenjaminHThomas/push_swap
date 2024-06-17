@@ -28,7 +28,8 @@ CFILES  = main.c \
 		  utilities/lst_funcs.c \
 		  utilities/cleanup.c \
 		  utilities/quick_sort.c \
-		  utilities/validate_input.c
+		  utilities/validate_input.c \
+		  utilities/replace_av.c
 
 SRCS	= $(addprefix $(SRCDIR)/, $(CFILES))
 OBJDIR	= objs

@@ -78,11 +78,19 @@ static int	non_digits(int ac, char **av)
 	return (0);
 }
 
-int	invalid_input(int ac, char **av)
+int	invalid_input(int ac, char **av, t_ps_data *data)
 {
-	if (non_digits(ac, av))
+	if (ac == 2 && contains_space(av[1]))
+		replace_av(av, data);
+	else
+	{
+		data->ac = ac;
+		data->av = av;
+		data->split_av = 0;
+	}
+	if (non_digits(data->ac, data->av))
 		return (1);
-	if (invalid_nums(ac, av))
+	if (invalid_nums(data->ac, data->av))
 		return (1);
 	return (0);
 }
