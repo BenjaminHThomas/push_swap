@@ -14,16 +14,19 @@
 
 static int	asc_check(t_list *a, int min, int max)
 {
-	while (a->next)
+	t_list	*pa;
+
+	pa = a;
+	while (pa->next)
 	{
-		if (a->num > a->next->num)
+		if (pa->num > pa->next->num)
 		{
-			if (a->num != max)
+			if (pa->num != max)
 				return (0);
-			if (a->next->num != min)
+			if (pa->next->num != min)
 				return (0);
 		}
-		a = a->next;
+		pa = pa->next;
 	}
 	return (1);
 }

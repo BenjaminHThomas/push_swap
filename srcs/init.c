@@ -18,10 +18,10 @@ static int	duplicates(t_ps_data *data)
 	int	j;
 
 	i = 0;
-	while (data->sorted_av[i + 1])
+	while (i < data->lena - 1)
 	{
 		j = i + 1;
-		while (data->sorted_av[j])
+		while (j < data->lena)
 		{
 			if (data->sorted_av[i] == data->sorted_av[j])
 				return (1);
@@ -37,7 +37,7 @@ int	rank_list(t_ps_data *data, char **av)
 	int		pos;
 	t_list	*a;
 
-	data->sorted_av = (int *)malloc(sizeof(int) * (data->ac - 1));
+	data->sorted_av = (int *)malloc(sizeof(int) * (data->lena));
 	if (!data->sorted_av)
 		return (1);
 	pos = 0;
@@ -64,6 +64,8 @@ int	init(int ac, char **av, t_ps_data *data)
 	int		i;
 	t_list	*temp;
 
+	data->a = NULL;
+	data->b = NULL;
 	data->a = ft_lstnew(ft_atoi(av[1]));
 	if (!data->a)
 		return (1);
