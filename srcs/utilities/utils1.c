@@ -12,6 +12,28 @@
 
 #include "push_swap.h"
 
+int	invalid_input(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (j == 0 && av[i][j] == '-')
+				j++;
+			if (av[i][j] < '0' || av[i][j] > '9')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 void	print_lists(t_ps_data *data)
 {
 	t_list	*a;

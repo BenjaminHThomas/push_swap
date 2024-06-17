@@ -18,10 +18,10 @@ static int	duplicates(t_ps_data *data)
 	int	j;
 
 	i = 0;
-	while (i < data->lena - 1)
+	while (data->sorted_av[i + 1])
 	{
 		j = i + 1;
-		while (j < data->lena)
+		while (data->sorted_av[j])
 		{
 			if (data->sorted_av[i] == data->sorted_av[j])
 				return (1);
@@ -64,8 +64,6 @@ int	init(int ac, char **av, t_ps_data *data)
 	int		i;
 	t_list	*temp;
 
-	data->a = NULL;
-	data->b = NULL;
 	data->a = ft_lstnew(ft_atoi(av[1]));
 	if (!data->a)
 		return (1);

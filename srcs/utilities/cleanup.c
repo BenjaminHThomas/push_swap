@@ -14,8 +14,8 @@
 
 void	free_mem(t_ps_data *data)
 {
-	lst_clear(data->a);
-	lst_clear(data->b);
+	lst_clear(&data->a);
+	lst_clear(&data->b);
 	if (data->sorted_av)
 		free(data->sorted_av);
 }
