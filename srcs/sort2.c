@@ -67,7 +67,7 @@ void	to_b(t_ps_data *data)
 	int		curr_ops;
 	t_list	*a;
 
-	while (data->lena && !a_solvable(data))
+	while (data->lena > 2 && !a_solvable(data))
 	{
 		a = data->a;
 		min_ops = MAXINT;
