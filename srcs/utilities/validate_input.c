@@ -20,6 +20,7 @@ static int	invalid_num(char *s)
 
 	i = 0;
 	res = 0;
+	sign = 1;
 	while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
 		i++;
 	if (s[i] == '-')
@@ -65,7 +66,7 @@ static int	non_digits(int ac, char **av)
 	while (i < ac)
 	{
 		j = 0;
-		while (av[i][j])
+		while (av[i] && av[i][j])
 		{
 			if (j == 0 && av[i][j] == '-')
 				j++;
@@ -81,7 +82,10 @@ static int	non_digits(int ac, char **av)
 int	invalid_input(int ac, char **av, t_ps_data *data)
 {
 	if (ac == 2 && contains_space(av[1]))
-		replace_av(av, data);
+	{
+		if(replace_av(av, data))
+			return (1);
+	}
 	else
 	{
 		data->ac = ac;

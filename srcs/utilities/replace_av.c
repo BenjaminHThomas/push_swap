@@ -26,6 +26,15 @@ int	contains_space(char *s)
 	return (0);
 }
 
+static int	alloc_av(t_ps_data *data, int len, char **av)
+{
+	data->av = (char **)malloc((len + 1) * sizeof(char *));
+	if (!data->av)
+		return (1);
+	data->av[0] = av[0];
+	return (0);
+}
+
 int	replace_av(char **av, t_ps_data *data)
 {
 	char	**new_av;
@@ -39,19 +48,14 @@ int	replace_av(char **av, t_ps_data *data)
 	len = 0;
 	while (new_av[len])
 		len++;
-	data->av = (char **)malloc((len + 1) * sizeof(char *));
-	if (!data->av)
+	if (alloc_av(data, len, av))
 	{
 		free(new_av);
 		return (1);
 	}
-	data->av[0] = av[0];
-	i = 0;
-	while (i < len)
-	{
+	i = -1;
+	while (++i < len)
 		data->av[i + 1] = new_av[i];
-		i++;
-	}
 	free(new_av);
 	data->ac = len + 1;
 	data->split_av = 1;
