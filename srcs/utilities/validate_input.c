@@ -41,7 +41,8 @@ static int	invalid_num(char *s)
 	return (0);
 }
 
-int	invalid_nums(int ac, char **av)
+/* Greater than maxint or less than minint */
+static int	invalid_nums(int ac, char **av)
 {
 	int	idx;
 
@@ -55,7 +56,7 @@ int	invalid_nums(int ac, char **av)
 	return (0);
 }
 
-int	invalid_input(int ac, char **av)
+static int	non_digits(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -74,5 +75,14 @@ int	invalid_input(int ac, char **av)
 		}
 		i++;
 	}
-	return (invalid_nums(ac, av));
+	return (0);
+}
+
+int	invalid_input(int ac, char **av)
+{
+	if (non_digits(ac, av))
+		return (1);
+	if (invalid_nums(ac, av))
+		return (1);
+	return (0);
 }
