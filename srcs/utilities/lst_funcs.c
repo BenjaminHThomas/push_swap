@@ -54,21 +54,21 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-void	lst_clear(t_list **list)
+void	lst_clear(t_list *list)
 {
 	t_list	*head;
 	t_list	*pnext;
 
-	if (!list || !*list)
+	if (!list)
 		return ;
-	head = *list;
+	head = list;
 	while (head)
 	{
 		pnext = head->next;
 		free(head);
 		head = pnext;
 	}
-	*list = NULL;
+	list = NULL;
 }
 
 t_list	*lst_last(t_list *list)
