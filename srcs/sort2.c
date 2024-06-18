@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:23:21 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 21:45:03 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/18 11:07:04 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	to_b(t_ps_data *data)
 	int		curr_ops;
 	t_list	*a;
 
-	while (data->lena > 2 && !a_solvable(data))
+	while (data->lena > 2)
 	{
 		a = data->a;
 		min_ops = MAXINT;

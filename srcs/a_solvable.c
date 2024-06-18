@@ -6,7 +6,7 @@
 /*   By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 18:42:40 by bthomas           #+#    #+#             */
-/*   Updated: 2024/06/16 10:04:20 by bthomas          ###   ########.fr       */
+/*   Updated: 2024/06/18 11:02:59 by bthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 static int	asc_check(t_list *a, int min, int max)
 {
 	t_list	*pa;
+	int		pivot_found;
 
 	pa = a;
+	pivot_found = 0;
 	while (pa->next)
 	{
 		if (pa->num > pa->next->num)
 		{
-			if (pa->num != max)
+			if (pa->num != max || pa->next->num != min || pivot_found)
 				return (0);
-			if (pa->next->num != min)
-				return (0);
+			pivot_found = 1;
 		}
 		pa = pa->next;
 	}
