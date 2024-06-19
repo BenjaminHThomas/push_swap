@@ -18,12 +18,9 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (1);
-	if (invalid_input(ac, av, &data))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	if (init(&data))
+	data.a = NULL;
+	data.b = NULL;
+	if (invalid_input(ac, av, &data) || init(&data))
 	{
 		write(2, "Error\n", 6);
 		free_mem(&data);

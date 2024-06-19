@@ -23,11 +23,8 @@ static int	invalid_num(char *s)
 	sign = 1;
 	while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
 		i++;
-	if (s[i] == '-')
-	{
+	if (s[i] == '-' && s[++i])
 		sign = -1;
-		i++;
-	}
 	else if (s[i] == '+')
 		i++;
 	while (ft_isdigit(s[i]))
@@ -48,7 +45,7 @@ static int	invalid_nums(int ac, char **av)
 	int	idx;
 
 	idx = 1;
-	while (idx < ac - 1)
+	while (idx < ac)
 	{
 		if (invalid_num(av[idx]))
 			return (1);
@@ -81,9 +78,10 @@ static int	non_digits(int ac, char **av)
 
 int	invalid_input(int ac, char **av, t_ps_data *data)
 {
+	data->sorted_av = NULL;
 	if (ac == 2 && contains_space(av[1]))
 	{
-		if(replace_av(av, data))
+		if (replace_av(av, data))
 			return (1);
 	}
 	else
