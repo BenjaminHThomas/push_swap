@@ -75,6 +75,8 @@ static int	non_digits(int ac, char **av)
 			j++;
 		if (av[i][j] == '-' || av[i][j] == '+')
 			j++;
+		if (!av[i][j])
+			return (1);
 		while (av[i] && av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
@@ -89,7 +91,7 @@ static int	non_digits(int ac, char **av)
 int	invalid_input(int ac, char **av, t_ps_data *data)
 {
 	data->sorted_av = NULL;
-	if (ac == 2 && contains_space(av[1]))
+	if (ac == 2)
 	{
 		if (replace_av(av, data))
 			return (1);

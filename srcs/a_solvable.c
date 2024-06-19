@@ -16,8 +16,10 @@ static int	asc_check(t_list *a, int min, int max)
 {
 	t_list	*pa;
 	int		pivot_found;
+	int		headnum;
 
 	pa = a;
+	headnum = pa->num;
 	pivot_found = 0;
 	while (pa->next)
 	{
@@ -29,6 +31,8 @@ static int	asc_check(t_list *a, int min, int max)
 		}
 		pa = pa->next;
 	}
+	if (pivot_found && pa->num > headnum)
+		return (0);
 	return (1);
 }
 
