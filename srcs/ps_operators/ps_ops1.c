@@ -46,6 +46,7 @@ void	ss(t_ps_data *data)
 {
 	sa(data);
 	sb(data);
+	ft_printf("ss\n");
 }
 
 /* (push a): Take first element of b and put it at the top of a. */

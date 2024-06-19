@@ -73,8 +73,16 @@ t_rots	get_rots(t_ps_data *data, int n, int rank, int to_b)
 
 void	sort(t_ps_data *data)
 {
-	pb(data);
-	pb(data);
+	if (data->lena > 3)
+	{
+		pb(data);
+		pb(data);
+	}
+	else
+	{
+		sa(data);
+		ft_printf("sa\n");
+	}
 	to_b(data);
 	to_a(data);
 	clean_a(data);
