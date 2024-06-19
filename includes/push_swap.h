@@ -63,6 +63,7 @@ void	del_element(t_ps_data *data, int pos);
 void	print_ranks(t_list *list);
 int		replace_av(char **av, t_ps_data *data);
 int		contains_space(char *s);
+int		numlen(long int n);
 
 /* list functions */
 t_list	*ft_lstnew(int n);

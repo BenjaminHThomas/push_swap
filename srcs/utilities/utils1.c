@@ -62,3 +62,18 @@ void	print_ranks(t_list *list)
 		list = list->next;
 	}
 }
+
+int	numlen(long int n)
+{
+	int	numlen;
+
+	if (n == 0)
+		return (1);
+	numlen = 0;
+	while (n)
+	{
+		n /= 10;
+		numlen++;
+	}
+	return (numlen);
+}
