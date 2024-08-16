@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8b2e805f-3d70-4b00-9ddc-2f56d3ad25b2"/>
+</p>
+
 # Push Swap
 You have 2 stacks, one a random assortment of integers, and the other empty. How can you sort the first stack efficiently by rotating the stacks, swapping the top 2 elements, and pushing the top number from one stack to the other?
 
