@@ -6,14 +6,14 @@
 #    By: bthomas <bthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 21:09:35 by bthomas           #+#    #+#              #
-#    Updated: 2024/06/16 21:58:02 by bthomas          ###   ########.fr        #
+#    Updated: 2024/08/16 20:53:35 by bthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME    = push_swap
 
-SRCDIR  = srcs
+SRCDIR  = src
 CFILES  = main.c \
 		  init.c \
 		  sort1.c \
@@ -35,16 +35,16 @@ SRCS	= $(addprefix $(SRCDIR)/, $(CFILES))
 OBJDIR	= objs
 OBJS	= $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 
-CFLAGS	= -Wall -Werror -Wextra -g3
+CFLAGS	= -Wall -Werror -Wextra
 CC		= cc
 
 PRINTF_LIB	= libftprintf.a
-PRINTF_DIR	= ./includes/ft_printf
+PRINTF_DIR	= ./include/ft_printf
 PRINTF		= $(PRINTF_DIR)$(PRINTF_LIB)
 
 LINK		= -L $(PRINTF_DIR) -lftprintf
 
-INCS	= -I./includes/ \
+INCS	= -I./include/ \
 		  -I $(PRINTF_DIR)
 
 all: $(OBJDIR) $(PRINTF) $(NAME)
